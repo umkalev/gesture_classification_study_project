@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результат классификации</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #99d7f0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .result p {
+            font-size: 18px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Результат классификации</h1>
+        <div class="result">
+            <p><strong>Жест:</strong> {{ label }}</p>
+            <p><strong>Точность:</strong> {{ "%.2f"|format(score * 100) }}%</p>
+        </div>
+        <a href="/">Попробовать ещё раз</a>
+        <img  class="animated-gif" src="{{url_for('static', filename='gesture.gif')}}" />
+    </div>
+</body>
+</html>
